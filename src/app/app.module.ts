@@ -27,7 +27,6 @@ import {StreamingMedia} from '@ionic-native/streaming-media/ngx';
 import { AdMobFree } from '@ionic-native/admob-free/ngx';
 import { AdmobService } from './services/admob.service';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

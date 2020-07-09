@@ -2,7 +2,8 @@ export const strings = {
 
     ST0: 'Home',
 
-    ST1: 'Workouts',
+    // ST1: 'Workouts',
+    ST1: 'Training/Videos',
 
     ST2: 'Exercises',
 
@@ -275,5 +276,14 @@ export const strings = {
     ST142: 'No Diets Found',
 
     ST143: 'No Posts Found',
+
+    ST144: 'Adult',
+
+    ST145: 'Senior',
+
+    ST146: 'Body Part',
+
+    ST147: 'Videos',
+
 
 };

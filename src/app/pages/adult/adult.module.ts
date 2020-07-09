@@ -4,10 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { WorkoutsPageRoutingModule } from './workouts-routing.module';
-import { PipesModule } from '../../pipes/pipes.module';
+import { AdultPageRoutingModule } from './adult-routing.module';
 
-import { WorkoutsPage } from './workouts.page';
+import { AdultPage } from './adult.page';
 import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
@@ -15,10 +14,9 @@ import { ComponentsModule } from '../../components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    WorkoutsPageRoutingModule,
-    PipesModule,
+    AdultPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [WorkoutsPage]
+  declarations: [AdultPage]
 })
-export class WorkoutsPageModule {}
+export class AdultPageModule {}

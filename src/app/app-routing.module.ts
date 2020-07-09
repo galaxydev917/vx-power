@@ -150,6 +150,14 @@ const routes: Routes = [
   {
     path: 'loader',
     loadChildren: () => import('./pages/loader/loader.module').then( m => m.LoaderPageModule)
+  },
+  {
+    path: 'adult',
+    loadChildren: () => import('./pages/adult/adult.module').then( m => m.AdultPageModule)
+  },
+  {
+    path: 'videolist',
+    loadChildren: () => import('./pages/videolist/videolist.module').then( m => m.VideolistPageModule)
   }
 ];
 

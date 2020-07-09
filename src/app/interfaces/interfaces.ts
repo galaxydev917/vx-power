@@ -37,6 +37,7 @@ export interface CategoriesObject {
   category_image: string;
 }
 
+
 export interface PostsObject {
   id: number;
   post_id: string;

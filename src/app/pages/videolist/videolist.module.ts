@@ -4,10 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { WorkoutsPageRoutingModule } from './workouts-routing.module';
-import { PipesModule } from '../../pipes/pipes.module';
+import { VideolistPageRoutingModule } from './videolist-routing.module';
 
-import { WorkoutsPage } from './workouts.page';
+import { VideolistPage } from './videolist.page';
 import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
@@ -15,10 +14,9 @@ import { ComponentsModule } from '../../components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    WorkoutsPageRoutingModule,
-    PipesModule,
+    VideolistPageRoutingModule,
     ComponentsModule
   ],
-  declarations: [WorkoutsPage]
+  declarations: [VideolistPage]
 })
-export class WorkoutsPageModule {}
+export class VideolistPageModule {}
