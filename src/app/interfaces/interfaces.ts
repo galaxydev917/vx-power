@@ -36,7 +36,13 @@ export interface CategoriesObject {
   category_title: string;
   category_image: string;
 }
-
+export interface VideoSubCategoryObject {
+  id: number;
+  category_id: string;
+  subcategory_title: string;
+  subcategory_image: string;
+  sub_title: string;
+}
 
 export interface PostsObject {
   id: number;

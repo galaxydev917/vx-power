@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { config } from '../config/config';
 // tslint:disable-next-line: max-line-length
-import { StringsObject, QuotesObject, DietsObject, CategoriesObject, PostsObject, GoalsObject, LevelsObject, TagsObject, EquipmentsObject, BodypartsObject, WorkoutsObject, MuscleObject, EquipmentObject, ExercisesObject } from '../interfaces/interfaces';
+import { StringsObject, QuotesObject, VideoSubCategoryObject, DietsObject, CategoriesObject, PostsObject, GoalsObject, LevelsObject, TagsObject, EquipmentsObject, BodypartsObject, WorkoutsObject, MuscleObject, EquipmentObject, ExercisesObject } from '../interfaces/interfaces';
 
 const Url = config.Url;
 
@@ -35,7 +35,9 @@ export class DataService {
   getDataCategories() {
     return this.ejectQuery<CategoriesObject[]>('/json/data_categories.php');
   }
-
+  getVideoSubCategories(id: number) {
+    return this.ejectQuery<VideoSubCategoryObject[]>(`/json/data_videosubcategory.php?parent_id=${id}`);
+  }
   getDataGoals() {
     return this.ejectQuery<GoalsObject[]>('/json/data_goals.php');
   }

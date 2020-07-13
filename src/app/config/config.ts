@@ -1,7 +1,7 @@
 export const config = {
 
     // backend url
-    Url: 'http://localhost/backend',
+    Url: 'http://192.168.100.57/backend',
 
     // facebook page url
     Facebook: 'https://facebook.com',

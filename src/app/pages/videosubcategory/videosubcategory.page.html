@@ -1,7 +1,7 @@
 <ion-header class="lightheader" no-border>
   <ion-toolbar mode="ios">
       <ion-title class="ion-text-capitalize">
-        {{strings.ST1}}
+        {{title}}
       </ion-title>
             <ion-buttons slot="start">
               <app-backbutton color="dark"></app-backbutton>
@@ -9,21 +9,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fixed>
+<ion-content>
   <app-loading *ngIf="isLoading"></app-loading>
   <ion-grid>
     <ion-row >
-      <ion-col *ngFor="let item of videoMainCategories" [routerLink]="['/videosubcategory', item.category_id, item.category_title]"  size="12"  [ngStyle]="{'height': height}">
-        <div class="card-center-image" [style.background-image]="'url(' + (item.category_image | image) + ')'">
+      <ion-col *ngFor="let item of subcategories" [routerLink]="['/videolist', item.subcategory_id, item.subcategory_title]"  size="12"  [ngStyle]="{'height': height}">
+        <div class="card-center-image" [style.background-image]="'url(' + (item.subcategory_image | image) + ')'">
           <div class="card-center-bg">
             <div class="card-center-text">
-              <p class="title">{{item.category_title}}</p>
+              <p class="title">{{item.subcategory_title}}</p>
+              <p class="subtitle">{{item.sub_title}}</p>
             </div>
           </div>
         </div>
         
       </ion-col>
     </ion-row>
-  </ion-grid>
-
+  </ion-grid> 
 </ion-content>
