@@ -21,43 +21,44 @@ export class AppComponent {
   public appPages = [
     {
       title: strings.ST1,
-      url: '/workouts',
-      icon: 'md-calendar'
+      url: '/first',
+      icon: 'calendar'
     },
-    {
-      title: strings.ST2,
-      url: '/exercises',
-      icon: 'md-fitness'
-    },
+    // {
+    //   title: strings.ST2,
+    //   url: '/exercises',
+    //   icon: 'md-fitness'
+    // },
     {
       title: strings.ST3,
       url: '/diets',
-      icon: 'md-restaurant'
+      icon: 'restaurant'
     },
-    {
-      title: strings.ST4,
-      url: '/posts',
-      icon: 'md-list-box'
-    },
+    // {
+    //   title: strings.ST4,
+    //   url: '/posts',
+    //   icon: 'list-box'
+    // },
     {
       title: strings.ST5,
       url: '/motivation',
-      icon: 'md-quote'
+      icon: 'newspaper'
     },
     {
       title: strings.ST105,
       url: '/calculator',
-      icon: 'md-calculator'
+      icon: 'calculator'
     },
     {
       title: strings.ST6,
       url: '/profile',
-      icon: 'md-person'
+      icon: 'person'
     },
+
     {
       title: strings.ST7,
-      url: '/aboutus',
-      icon: 'md-bookmark'
+      url: '/contact',
+      icon: 'bookmark'
     },
   ];
 
@@ -69,6 +70,7 @@ export class AppComponent {
     private router: Router,
     public afAuth: AngularFireAuth,
     public authService: AuthService
+
   ) {
     this.initializeApp();
   }

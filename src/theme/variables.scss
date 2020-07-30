@@ -4,7 +4,7 @@
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
-  --ion-color-primary: #2472d4;
+  --ion-color-primary: #  ;
   --ion-color-primary-rgb: 36,114,212;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255,255,255;
@@ -96,11 +96,11 @@
   background-size: cover;
   background-position: center;
   height: 100%;
-  border-radius: 10px;
+  // border-radius: 10px;
 }
 
 .card-center-bg{
-  border-radius: 10px;
+  //border-radius: 10px;
   background: rgba(0, 0, 0, 0.7);
   padding: 15px;
   align-items: center;
@@ -136,7 +136,7 @@
   top: 0;
   width: 100%;
   text-align: center;
-  padding: 10px;
+  //padding: 10px;
 }
 
 .darkheader ion-toolbar{

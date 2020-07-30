@@ -35,7 +35,6 @@ export class StartPage implements OnInit {
    }
 
    ngOnInit() {
-
   }
 
   async goLoginPage() {
@@ -43,9 +42,7 @@ export class StartPage implements OnInit {
     const modal = await this.modalCtrl.create({
        component: LoginPage,
      });
-
     modal.present();
-
    }
 
    async presentAlert(value) {
@@ -60,14 +57,11 @@ export class StartPage implements OnInit {
 
 
   async goSignUpPage() {
-
     const modal = await this.modalCtrl.create({
        component: SignupPage,
      });
-
     modal.present();
-
-   }
+  }
 
   tryFacebookLogin() {
     this.authService.doFacebookLogin()

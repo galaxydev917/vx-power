@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { VideolistPageRoutingModule } from './videolist-routing.module';
+import { PipesModule } from '../../pipes/pipes.module';
 
 import { VideolistPage } from './videolist.page';
 import { ComponentsModule } from '../../components/components.module';
@@ -14,6 +15,7 @@ import { ComponentsModule } from '../../components/components.module';
     CommonModule,
     FormsModule,
     IonicModule,
+    PipesModule,
     VideolistPageRoutingModule,
     ComponentsModule
   ],

@@ -7,9 +7,17 @@
             <app-backbutton color="light"></app-backbutton>
         </ion-buttons>
         <ion-buttons slot="end">
-          <ion-icon mode="md" name="md-information-circle-outline" [routerLink]="'/bmiinfo'" slot="end">
+          <ion-icon mode="md" name="information-circle-outline" [routerLink]="'/bmiinfo'" slot="end">
           </ion-icon>
         </ion-buttons>
+        <!-- <ion-buttons slot="end">
+          <ion-button (click)="openNotifications()">
+            <ion-icon name="notifications-outline" style="font-size: 32px;"></ion-icon>
+            <div *ngIf="unreadNotificationCount > 0">
+              <ion-badge color="danger" style="margin-left: -15px; margin-top: -10px; font-size: 12px; border-radius: 20px;">{{unreadNotificationCount}}</ion-badge>
+            </div>
+         </ion-button>
+        </ion-buttons>         -->
     </ion-toolbar>
   </ion-header>
 
@@ -37,8 +45,9 @@
           
           <ion-list class="line-input" mode="md"> 
               <ion-item mode="md">
-                <ion-input class="ion-text-center" maxlength="3" minlength="3" [placeholder]="strings.ST136" [(ngModel)]="height" type="text"></ion-input>
+                <ion-input class="ion-text-center" maxlength="6" minlength="3" [placeholder]="strings.ST136" [(ngModel)]="height" type="text" (ionInput)="inputHeight()"></ion-input>
               </ion-item> 
+              <p style="color: red;" *ngIf="!validHeightFormat">&nbsp;&nbsp;&nbsp;Invalid format. ex: 5'15".</p>
             </ion-list>
 
             <ion-list class="line-input" mode="md"> 
@@ -47,12 +56,11 @@
                 </ion-item> 
               </ion-list>
 
-              <ion-button mode="ios" (click)="MetricCalculate()" type="submit" color="dark" fill="solid" size="default" shape="round" expand="block">
+              <ion-button mode="ios" (click)="MetricCalculate()" type="submit" color="primary" fill="solid" size="default" shape="round" expand="block">
                   {{strings.ST138}}
               </ion-button>
 
               <p class="footertext">{{strings.ST139}}</p>
-
           </div>
       </ion-col>
     </ion-row>

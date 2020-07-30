@@ -1,29 +1,47 @@
 <ion-header class="lightheader" no-border>
-  <ion-toolbar mode="ios">
+  <ion-toolbar mode="ios" style="--background : #dd0024;">
     <ion-title class="ion-text-capitalize">
-      {{strings.ST147}}
+      <span style="color: white;">{{strings.ST147}}</span>
     </ion-title>
     <ion-buttons slot="start">
       <app-backbutton color="dark"></app-backbutton>
     </ion-buttons>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="openNotifications()">
+        <ion-icon name="notifications-outline" style="font-size: 32px; color: white;"></ion-icon>
+        <div *ngIf="unreadNotificationCount > 0">
+          <ion-badge color="primary" style="margin-left: -15px; margin-top: -10px; font-size: 12px; border-radius: 20px;">{{unreadNotificationCount}}</ion-badge>
+        </div>
+     </ion-button>
+    </ion-buttons>         -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <!-- <ion-list>
+    <ion-item *ngFor="let item of videolist" (click)="playVideo(item)">
+      <ion-thumbnail slot="end">
+        <img src="{{item.video_image | image }}">
+      </ion-thumbnail>
+      <ion-label>
+        <h3><strong>{{item.video_title}}</strong></h3>
+        <p>{{item.video_description}}</p>
+      </ion-label>
+    </ion-item>    
+
+  </ion-list>   -->
   <ion-grid>
-      
-    <ion-row>
-      <ion-col (click)="playVideo()">
-        <div class="card-center-image" style="background-image: url('./assets/images/goals.jpg');">
+    <ion-row [ngStyle]="{'height': height}" *ngFor="let item of videolist" (click)="playVideo(item)">
+      <ion-col  size="12">
+        <div class="card-center-image" [style.background-image]="'url(' + (item.video_image | image) + ')'">
           <div class="card-center-bg">
             <div class="card-center-text">
-              <!-- <p class="title">{{strings.ST144}}</p>
-              <p class="subtitle">{{strings.ST12}}</p> -->
+              <p class="title">{{item.video_title}}</p>
             </div>
           </div>
         </div>
+        
       </ion-col>
-    </ion-row>
-      
-  </ion-grid>
+    </ion-row>  
+  </ion-grid>  
 </ion-content>

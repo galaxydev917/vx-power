@@ -4,7 +4,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Platform, IonSlides } from '@ionic/angular';
 import { strings } from '../../config/strings';
 import { FavoriteService } from '../../services/favorite.service';
-import { AdmobService } from '../../services/admob.service';
 
 @Component({
   selector: 'app-ddetails',
@@ -33,17 +32,16 @@ export class DdetailsPage implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     public plt: Platform,
-    private dataFavorite: FavoriteService,
-    public admob: AdmobService
+    private dataFavorite: FavoriteService
     ) {}
 
     ngOnInit() {
-      this.admob.BannerAd();
+      //this.admob.BannerAd();
     }
 
     // tslint:disable-next-line: use-lifecycle-interface
     ngOnDestroy() {
-      this.admob.HideBannerAd();
+      //this.admob.HideBannerAd();
     }
 
     async segmentChanged(ev: any) {

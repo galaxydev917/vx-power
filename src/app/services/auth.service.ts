@@ -3,7 +3,9 @@ import { Platform } from '@ionic/angular';
 import * as firebase from 'firebase/app';
 import { FirebaseService } from './firebase.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Facebook } from '@ionic-native/facebook/ngx';
+import {Facebook} from '@ionic-native/facebook/ngx'
+import { DataService } from '../services/data.service';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +15,11 @@ export class AuthService {
   constructor(
     private firebaseService: FirebaseService,
     public afAuth: AngularFireAuth,
-    private fb: Facebook,
-    public platform: Platform
+    public fb : Facebook,
+    public platform: Platform,
+    private DataService: DataService,
+    private storage: Storage
+
   ) {}
 
   doRegister(value) {
@@ -46,7 +51,8 @@ export class AuthService {
 
   doLogout() {
     return new Promise((resolve, reject) => {
-      this.afAuth.auth.signOut()
+      this.afAuth.signOut()
+      //this.afAuth.auth.signOut()
       .then(() => {
         // this.firebaseService.unsubscribeOnLogOut();
         resolve();
@@ -59,33 +65,47 @@ export class AuthService {
 
     doFacebookLogin() {
       return new Promise((resolve, reject) => {
-        if (this.platform.is('cordova')) {
+        // if (this.platform.is('cordova')) {
           // ["public_profile"] is the array of permissions, you can add more if you need
-          this.fb.login(['public_profile'])
+          this.fb.login(['email'])
           .then((response) => {
             const facebookCredential = firebase.auth.FacebookAuthProvider.credential(response.authResponse.accessToken);
+            
             firebase.auth().signInWithCredential(facebookCredential)
-              .then(user => resolve());
+              .then(user => {
+                var value = {
+                  email : JSON.stringify(user.user.email),
+                  name : JSON.stringify(user.user.displayName),
+                  password : '123456'
+                }
+                this.DataService.registerNewUser(value).subscribe( resp => {
+                  this.storage.set('userinfo', value);
+                  console.log("storage set successfull.");
+                });    
+
+                resolve()
+              }).catch(function(error) {
+                
+              });
           }, err => reject(err)
           );
-        } else {
-          this.afAuth.auth
-          .signInWithPopup(new firebase.auth.FacebookAuthProvider())
-          .then(result => {
-            // Default facebook img is too small and we need a bigger image
-            const bigImgUrl = 'https://graph.facebook.com/' + result.additionalUserInfo.profile + '/picture?height=500';
-            // update profile to save the big fb profile img.
-            firebase.auth().currentUser.updateProfile({
-              displayName: result.user.displayName,
-              photoURL: bigImgUrl
-            }).then(res => resolve()
-            , (err) => {
-              reject(err);
-            });
-          }, (err) => {
-            reject(err);
-          });
-        }
+        // } else {
+        //   this.afAuth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+        //   .then(result => {
+        //     // Default facebook img is too small and we need a bigger image
+        //     const bigImgUrl = 'https://graph.facebook.com/' + result.additionalUserInfo.profile + '/picture?height=500';
+        //     // update profile to save the big fb profile img.
+        //     firebase.auth().currentUser.updateProfile({
+        //       displayName: result.user.displayName,
+        //       photoURL: bigImgUrl
+        //     }).then(res => resolve()
+        //     , (err) => {
+        //       reject(err);
+        //     });
+        //   }, (err) => {
+        //     reject(err);
+        //   });
+        // }
       });
     }
 

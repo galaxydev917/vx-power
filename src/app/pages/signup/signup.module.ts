@@ -8,6 +8,7 @@ import { SignupPageRoutingModule } from './signup-routing.module';
 
 import { SignupPage } from './signup.page';
 import { TermsguestPageModule } from '../termsguest/termsguest.module';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { TermsguestPageModule } from '../termsguest/termsguest.module';
     IonicModule,
     ReactiveFormsModule,
     SignupPageRoutingModule,
+    ComponentsModule,
     TermsguestPageModule
   ],
   declarations: [SignupPage]

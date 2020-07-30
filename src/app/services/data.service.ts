@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { config } from '../config/config';
 // tslint:disable-next-line: max-line-length
-import { StringsObject, QuotesObject, VideoSubCategoryObject, DietsObject, CategoriesObject, PostsObject, GoalsObject, LevelsObject, TagsObject, EquipmentsObject, BodypartsObject, WorkoutsObject, MuscleObject, EquipmentObject, ExercisesObject } from '../interfaces/interfaces';
+import { StringsObject, QuotesObject, NotificationObject, UserObject, VideoSubCategoryObject, VideoListObject, DietsObject, CategoriesObject, PostsObject, GoalsObject, LevelsObject, TagsObject, EquipmentsObject, BodypartsObject, WorkoutsObject, MuscleObject, EquipmentObject, ExercisesObject } from '../interfaces/interfaces';
 
 const Url = config.Url;
 
@@ -24,8 +24,8 @@ export class DataService {
     return this.ejectQuery<StringsObject>('/json/data_strings.php');
   }
 
-  getDataMotivation() {
-    return this.ejectQuery<QuotesObject[]>('/json/data_quotes.php');
+  getDataMotivation(today : any) {
+    return this.ejectQuery<QuotesObject[]>('/json/data_quotes.php?today='+today);
   }
 
   getDataFeaturedDiets() {
@@ -37,6 +37,9 @@ export class DataService {
   }
   getVideoSubCategories(id: number) {
     return this.ejectQuery<VideoSubCategoryObject[]>(`/json/data_videosubcategory.php?parent_id=${id}`);
+  }
+  getVideoList(id: number) {
+    return this.ejectQuery<VideoListObject[]>(`/json/data_videolist.php?category_id=${id}`);
   }
   getDataGoals() {
     return this.ejectQuery<GoalsObject[]>('/json/data_goals.php');
@@ -109,5 +112,20 @@ export class DataService {
   getDataWorkoutExercisesByDay(id: number, day: number) {
     return this.ejectQuery<ExercisesObject[]>(`/json/data_days.php?id=${id}&day=${day}`);
   }
-
+  getUnreadNotifications(email : any) {
+    return this.ejectQuery<NotificationObject[]>(`/json/data_notifications.php?email=${email}`);
+  }
+  getUnreadCount(email : any) {
+    return this.ejectQuery<UserObject[]>(`/json/data_unreadcount.php?email=${email}`);
+  }
+  readNotifications(email : any) {
+    return this.ejectQuery<NotificationObject[]>(`/json/data_readnotifications.php?email=${email}`);
+  }
+  registerNewUser(value: any) {
+    return this.ejectQuery<UserObject[]>(`/json/data_user.php?&username=${value.name}&password=${value.password}&email=${value.email}`);
+  }
+  checkUserExist(value: any) {
+    
+    return this.ejectQuery<UserObject[]>(`/json/check_user.php?&email=${value.email}`);
+  }  
 }

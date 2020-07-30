@@ -6,6 +6,8 @@ import { NavController, MenuController, ModalController, LoadingController } fro
 import { strings } from '../../config/strings';
 import * as firebase from 'firebase/app';
 import { TermsguestPage } from '../termsguest/termsguest.page';
+import { DataService } from '../../services/data.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-signup',
@@ -15,6 +17,7 @@ import { TermsguestPage } from '../termsguest/termsguest.page';
 export class SignupPage implements OnInit {
 
   validationsform: FormGroup;
+  isLoading = false;
 
   constructor(
     private authService: AuthService,
@@ -23,6 +26,8 @@ export class SignupPage implements OnInit {
     private router: Router,
     public menuCtrl: MenuController,
     public modalCtrl: ModalController,
+    private DataService: DataService,
+    private storage: Storage,
     public loadingController: LoadingController
   ) { }
 
@@ -49,11 +54,19 @@ export class SignupPage implements OnInit {
   }
 
   tryRegister(value) {
+    this.isLoading = true;
+
     this.authService.doRegister(value)
     .then(res => {
       firebase.auth().currentUser.updateProfile({
         displayName : value.name,
     });
+
+    this.DataService.registerNewUser(value).subscribe( resp => {
+      this.isLoading = false;
+      this.storage.set('userinfo', value);
+    });
+
       this.modalCtrl.dismiss();
       this.router.navigate(['/home']);
     }, err => {

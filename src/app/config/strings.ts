@@ -3,19 +3,21 @@ export const strings = {
     ST0: 'Home',
 
     // ST1: 'Workouts',
-    ST1: 'Training/Videos',
+    ST1: 'Training Videos',
 
-    ST2: 'Exercises',
+    //ST2: 'Exercises',
+    ST2: 'Shop',
+    //ST3: 'Diets',
+    ST3: 'Recipes',
 
-    ST3: 'Diets',
-
-    ST4: 'Blog',
+    //ST4: 'Blog',
+    ST4: 'Notifications',
 
     ST5: 'Motivation',
 
     ST6: 'Profile',
 
-    ST7: 'About Us',
+    ST7: 'Contact Us',
 
     ST8: 'Sign Out',
 
@@ -155,7 +157,7 @@ export const strings = {
 
     ST76: 'Please fill out the form below!',
 
-    ST77: 'We\'re here to help',
+    ST77: 'CONTACT US',
 
     ST78: 'Full Name',
 
@@ -284,6 +286,8 @@ export const strings = {
     ST146: 'Body Part',
 
     ST147: 'Videos',
+
+    ST148: 'Notifications',
 
 
 };

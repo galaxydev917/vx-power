@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { NavController, MenuController, ModalController, LoadingController } from '@ionic/angular';
 import { strings } from '../../config/strings';
 import { ForgotpassPage } from '../forgotpass/forgotpass.page';
+import { Storage } from '@ionic/storage';
+import { DataService } from '../../services/data.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +26,9 @@ export class LoginPage implements OnInit {
     private router: Router,
     public menuCtrl: MenuController,
     public modalCtrl: ModalController,
+    private storage: Storage,
+    private DataService: DataService,
+    private toastController: ToastController,
     public loadingController: LoadingController
   ) { }
 
@@ -62,8 +68,23 @@ export class LoginPage implements OnInit {
   tryLogin(value) {
     this.authService.doLogin(value)
     .then(res => {
-      this.modalCtrl.dismiss();
-      this.router.navigate(['/home']);
+      this.DataService.checkUserExist(value).subscribe( resp => {
+        this.modalCtrl.dismiss();
+        this.storage.set('userinfo', value);
+  
+        this.router.navigate(['/home']);
+        // if(resp.length == 0){
+        //   this.presentToast();
+        // }
+        // else{
+        //   this.modalCtrl.dismiss();
+        //   this.storage.set('userinfo', value);
+    
+        //   this.router.navigate(['/home']);
+        // }
+      });
+
+
     }, err => {
       if (err.code === 'auth/wrong-password') {
         this.presentAlert(strings.ST30);
@@ -88,5 +109,12 @@ export class LoginPage implements OnInit {
   goClosePage() {
     this.modalCtrl.dismiss();
   }
-
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Account was removed.',
+      duration: 3500,
+      position: 'top'
+    });
+    toast.present();
+  }
 }

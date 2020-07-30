@@ -8,7 +8,6 @@ import { PipesModule } from '../pipes/pipes.module';
 import { HtmlComponent } from './html/html.component';
 import { PostratingComponent } from './postrating/postrating.component';
 import { PostcommentsComponent } from './postcomments/postcomments.component';
-import { StarRatingModule } from 'ionic4-star-rating';
 import { AddcommentComponent } from './addcomment/addcomment.component';
 import { EmptyComponent } from './empty/empty.component';
 import { RestdayComponent } from './restday/restday.component';
@@ -51,7 +50,6 @@ import { DietsfavComponent } from './dietsfav/dietsfav.component';
     IonicModule,
     FormsModule,
     PipesModule,
-    StarRatingModule,
     RouterModule,
     ReactiveFormsModule
   ]

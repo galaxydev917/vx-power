@@ -1,5 +1,15 @@
+ion-row{
+    --background : 'black'
+}
+.grid-bg{
+    height: 100%;
+    background-image: url('../../../assets/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 .start-logo{
-    max-width: 160px;
+    max-width: 180px;
     margin-bottom: 20px;
 }
 
@@ -11,7 +21,14 @@
     margin-top: 10px !important;
     text-transform: uppercase !important;
 }
-
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+}
 .go-to-restpass
 {
   text-align: center;
@@ -27,13 +44,15 @@
 
 .line-input {
     margin-bottom: 0!important;
+    background: transparent;
     ion-item {
         --border-color: transparent!important;
         --background-activated: white;
         --background-focused: white;
         --background-hover: white;
         --highlight-height: 0;
-        border: 1px solid #807e7e;
+        //--background: transparent;
+        //border: 1px solid #807e7e;
         border-radius: 50px;
 
         &.item-has-focus {

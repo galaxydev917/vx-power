@@ -1,0 +1,75 @@
+<!-- <ion-header class="lightheader" no-border>
+  <ion-toolbar mode="ios">
+      <ion-title class="ion-text-capitalize">
+        {{strings.ST1}}
+      </ion-title>
+      <ion-buttons slot="start">
+        <app-backbutton color="dark"></app-backbutton>
+      </ion-buttons>
+
+      <ion-buttons slot="end">
+        <ion-button (click)="openNotifications()">
+          <ion-icon name="notifications-outline" style="font-size: 32px; color: darkgoldenrod;"></ion-icon>
+          <div *ngIf="unreadNotificationCount > 0">
+            <ion-badge color="danger" style="margin-left: -15px; margin-top: -10px; font-size: 12px; border-radius: 20px;">{{unreadNotificationCount}}</ion-badge>
+          </div>
+       </ion-button>
+      </ion-buttons>      
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fixed>
+  <app-loading *ngIf="isLoading"></app-loading>
+  <ion-grid>
+    <ion-row >
+      <ion-col *ngFor="let item of videoMainCategories" [routerLink]="['/videosubcategory', item.category_id, item.category_title]"  size="12"  [ngStyle]="{'height': height}">
+        <div class="card-center-image" [style.background-image]="'url(' + (item.category_image | image) + ')'">
+          <div class="card-center-bg">
+            <div class="card-center-text">
+              <p class="title">{{item.category_title}}</p>
+            </div>
+          </div>
+        </div>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content> -->
+<ion-header class="lightheader" no-border>
+  <ion-toolbar mode="ios" style="--background : #dd0024;">
+    <ion-title class="ion-text-capitalize">
+      <span style="color: white;">{{strings.ST1}}</span>
+    </ion-title>
+    <ion-buttons slot="start">
+      <app-backbutton color="dark"></app-backbutton>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="openNotifications()">
+        <ion-icon name="notifications-outline" style="font-size: 32px; color: white;"></ion-icon>
+        <div *ngIf="unreadNotificationCount > 0">
+          <ion-badge color="primary" style="margin-left: -15px; margin-top: -10px; font-size: 12px; border-radius: 20px;">{{unreadNotificationCount}}</ion-badge>
+        </div>
+     </ion-button>
+    </ion-buttons>        
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fixed>
+
+  <ion-grid>
+    <ion-row >
+      <ion-col *ngFor="let item of videoMainCategories" [routerLink]="['/videolist', item.category_id, item.category_title]"  size="12">
+        <div class="card-center-image" [style.background-image]="'url(' + (item.category_image | image) + ')'">
+          <div class="card-center-bg">
+            <div class="card-center-text">
+              <p class="title">{{item.category_title}}</p>
+            </div>
+          </div>
+        </div>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,3 +1,4 @@
+
 .header-bg{
     background-image: url('../../../assets/images/header.jpg');
     background-position: center;
@@ -48,4 +49,14 @@
     right: 14px;
     top: 11px;
     font-size: 22px;
+}
+ion-item{
+    --padding-start: 0;
+    --border-color: #e2e2e2;
+    --background-activated: white;
+    --background-focused: white;
+    --background-hover: white;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
 }

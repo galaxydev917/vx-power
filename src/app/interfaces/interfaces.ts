@@ -10,7 +10,22 @@ export interface QuotesObject {
   quote_title: string;
 }
 
+export interface UserObject {
+  id: number;
+  username: string;
+  password: string;
+  email : string;
+  role : number;
+  unreadcount : number;
+  notifications : string
+}
+export interface NotificationObject {
+  notification_id: number;
+  notification_title: string;
+  notification_description: string;
+  notification_date : string;
 
+}
 export interface DietsObject {
   id: number;
   diet_id: string;
@@ -43,7 +58,15 @@ export interface VideoSubCategoryObject {
   subcategory_image: string;
   sub_title: string;
 }
-
+export interface VideoListObject {
+  video_id: number;
+  subcategory_id: string;
+  video_title: string;
+  video_image: string;
+  video_link: string;
+  video_description: string;
+  video_urlid : string;
+}
 export interface PostsObject {
   id: number;
   post_id: string;

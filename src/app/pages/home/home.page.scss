@@ -3,7 +3,14 @@
     background-size: cover;
     background-position: center;
 }
-
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100%/3);
+    background-color: rgba($color: #000000, $alpha: 0.8);
+}
 .header-md:after{
     display: none !important;
 }
@@ -12,13 +19,10 @@
 max-width: 200px;
 }
 
-.menu-cols{
-    padding-top: 30px;
-}
 
 .menu-cols ion-col{
 text-align: center;
-padding: 20px 10px;
+//padding: 20px 10px;
 }
 
 .menu-cols ion-col img{
@@ -35,4 +39,9 @@ padding: 20px 10px;
     opacity: 0.5;
     font-size: 14px;
     font-weight: 600;
-    }
+}
+
+ion-row{
+    align-items: center;
+    justify-content: center;
+}

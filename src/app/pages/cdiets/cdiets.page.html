@@ -1,11 +1,19 @@
 <ion-header class="lightheader" no-border>
-  <ion-toolbar mode="ios">
-      <ion-title class="ion-text-capitalize">
-        {{title}}
-      </ion-title>
-            <ion-buttons slot="start">
-              <app-backbutton color="dark"></app-backbutton>
-            </ion-buttons>
+  <ion-toolbar mode="ios" style="--background : #dd0024;">
+    <ion-title class="ion-text-capitalize">
+      <span style="color: white;">{{title}}</span>
+    </ion-title>
+    <ion-buttons slot="start">
+      <app-backbutton color="dark"></app-backbutton>
+    </ion-buttons>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="openNotifications()">
+        <ion-icon name="notifications-outline" style="font-size: 32px; color: white;"></ion-icon>
+        <div *ngIf="unreadNotificationCount > 0">
+          <ion-badge color="primary" style="margin-left: -15px; margin-top: -10px; font-size: 12px; border-radius: 20px;">{{unreadNotificationCount}}</ion-badge>
+        </div>
+     </ion-button>
+    </ion-buttons>         -->
   </ion-toolbar>
 </ion-header>
 
@@ -17,12 +25,12 @@
 
   <ion-grid>
       <ion-row>
-        <ion-col size="12" *ngFor="let item of diets" [routerLink]="['/ddetails', item.diet_id]" [ngStyle]="{'height': height}">
+        <ion-col size="12" *ngFor="let item of diets" [routerLink]="['/ddetails', item.diet_id]" >
            <div class="cardcategory" [style.background-image]="'url(' + (item.diet_image | image) + ')'">
                <div class="overlay">
                <div class="texts">
                <h1>{{item.diet_title}}</h1>
-               <p><ion-icon name="ios-stopwatch" color="primary"></ion-icon>{{item.diet_time}} <ion-icon style="margin-left: 8px;" name="ios-flame" color="primary"></ion-icon>{{item.diet_calories}} {{strings.ST45}}</p>
+               <p><ion-icon name="stopwatch-outline" color="primary"></ion-icon>{{item.diet_time}} <ion-icon style="margin-left: 8px;" name="flame-outline" color="primary"></ion-icon>{{item.diet_calories}} {{strings.ST45}}</p>
                </div>
              </div>
              </div>

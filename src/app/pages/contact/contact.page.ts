@@ -3,8 +3,11 @@ import { strings } from '../../config/strings';
 import { Platform, LoadingController, NavController } from '@ionic/angular';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { config } from '../../config/config';
-import { AnimationOptions } from '@ionic/angular/dist/providers/nav-controller';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
+import { DataService } from '../../services/data.service';
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-contact',
@@ -15,6 +18,8 @@ export class ContactPage implements OnInit {
 
   public strings = strings;
   public innerHeight: any;
+  public headerUrl: any;
+  unreadNotificationCount = 0;
 
   validationsform: FormGroup;
 
@@ -23,7 +28,11 @@ export class ContactPage implements OnInit {
     private formBuilder: FormBuilder,
     public loadingController: LoadingController,
     private navCtrl: NavController,
-    public http: HttpClient
+    public http: HttpClient,
+    private DataService: DataService,
+    private router: Router,
+    private location: Location,
+    private storage: Storage
     ) {}
 
     // Http Options
@@ -34,9 +43,16 @@ export class ContactPage implements OnInit {
       })
     };
 
+    async ionViewWillEnter() {
+      this.storage.get('userinfo').then(userinfo=>{
+       this.DataService.getUnreadCount(userinfo.email).subscribe( resp => {
+         this.unreadNotificationCount = resp[0].unreadcount;
+       });
+      });
+    }  
     ngOnInit() {
-
-      this.innerHeight = this.plt.height() / 2.5 + 'px';
+      this.headerUrl = '../../../assets/images/header.jpg';
+      this.innerHeight = this.plt.height() / 3 + 'px';
 
       this.validationsform = this.formBuilder.group({
         name: new FormControl('', Validators.compose([
@@ -63,11 +79,7 @@ export class ContactPage implements OnInit {
     }
 
     backButton() {
-      const animations: AnimationOptions = {
-        animated: true,
-        animationDirection: 'back'
-      };
-      this.navCtrl.back(animations);
+      this.location.back();
     }
 
     sentMessage(value) {
@@ -77,7 +89,7 @@ export class ContactPage implements OnInit {
               email: value.email,
               message: value.message
       };
-
+      console.log(messageData);
       this.http.post(config.Url + '/controller/contactform.php', messageData, this.httpOptions)
         .subscribe(data => {
           if (data === 'false') {
@@ -129,6 +141,10 @@ export class ContactPage implements OnInit {
 
 
         } */
-
+  openNotifications(){
+    if(this.unreadNotificationCount < 1)
+      return;
+    this.router.navigateByUrl('/notifications');
+  }
 
 }
