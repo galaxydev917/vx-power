@@ -30,11 +30,11 @@
             <ion-col style="text-align: right; align-self: center;">
               <img src="./assets/icon/quote.png" style="width: 150px; height: 150px;">
             </ion-col>
-            
           </ion-row>
           <ion-row  style="height: 60%;">
             <ion-col style="align-self: center;">
-              <h1>{{quote.quote_title}}</h1>
+              <app-quotehtml [htmlcontent]="quote.quote_title" ></app-quotehtml>
+              <!-- <h1>{{quote.quote_title}}</h1> -->
             </ion-col>
             
           </ion-row>

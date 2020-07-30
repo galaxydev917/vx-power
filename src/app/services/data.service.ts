@@ -35,6 +35,9 @@ export class DataService {
   getDataCategories() {
     return this.ejectQuery<CategoriesObject[]>('/json/data_categories.php');
   }
+  getDataVideoCategories() {
+    return this.ejectQuery<CategoriesObject[]>('/json/data_videocategories.php');
+  }
   getVideoSubCategories(id: number) {
     return this.ejectQuery<VideoSubCategoryObject[]>(`/json/data_videosubcategory.php?parent_id=${id}`);
   }

@@ -6,6 +6,8 @@ import { BackbuttonComponent } from './backbutton/backbutton.component';
 import { LoadingComponent } from './loading/loading.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { HtmlComponent } from './html/html.component';
+import { QuotehtmlComponent } from './quotehtml/quotehtml.component';
+
 import { PostratingComponent } from './postrating/postrating.component';
 import { PostcommentsComponent } from './postcomments/postcomments.component';
 import { AddcommentComponent } from './addcomment/addcomment.component';
@@ -23,6 +25,7 @@ import { DietsfavComponent } from './dietsfav/dietsfav.component';
     BackbuttonComponent,
     LoadingComponent,
     HtmlComponent,
+    QuotehtmlComponent,
     PostratingComponent,
     PostcommentsComponent,
     AddcommentComponent,
@@ -36,6 +39,7 @@ import { DietsfavComponent } from './dietsfav/dietsfav.component';
     BackbuttonComponent,
     LoadingComponent,
     HtmlComponent,
+    QuotehtmlComponent,
     PostratingComponent,
     PostcommentsComponent,
     AddcommentComponent,

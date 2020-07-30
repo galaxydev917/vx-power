@@ -39,7 +39,7 @@ export class FirstPage implements OnInit {
     this.isLoading = true;
 
     this.height = this.plt.height() / 4.4 + 'px';
-    this.DataService.getDataCategories()
+    this.DataService.getDataVideoCategories()
     .subscribe( resp => {
       this.videoMainCategories = resp;
 
