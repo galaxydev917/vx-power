@@ -46,7 +46,8 @@ export class ContactPage implements OnInit {
     async ionViewWillEnter() {
       this.storage.get('userinfo').then(userinfo=>{
        this.DataService.getUnreadCount(userinfo.email).subscribe( resp => {
-         this.unreadNotificationCount = resp[0].unreadcount;
+        if(resp.length > 0)
+          this.unreadNotificationCount = resp[0].unreadcount;
        });
       });
     }  
@@ -104,7 +105,7 @@ export class ContactPage implements OnInit {
           console.log(error);
         });
     }
-
+    
 /* sentMessage(value) {
 
       fetch(config.Url + '/controller/contactform.php', {

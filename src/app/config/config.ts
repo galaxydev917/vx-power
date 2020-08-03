@@ -1,8 +1,8 @@
 export const config = {
 
     // backend url
-    Url: 'http://192.168.100.57/vxpower_backend',
-    //Url: 'http://app.vxpower.com',
+    //Url: 'http://192.168.100.57/vxpower_backend',
+    Url: 'http://app.vxpower.com',
     // facebook page url
     Facebook: 'https://facebook.com',
 
