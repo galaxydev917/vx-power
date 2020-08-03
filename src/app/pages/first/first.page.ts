@@ -29,8 +29,8 @@ export class FirstPage implements OnInit {
   async ionViewWillEnter() {
     this.storage.get('userinfo').then(userinfo=>{
      this.DataService.getUnreadCount(userinfo.email).subscribe( resp => {
-       //if(resp)
-       this.unreadNotificationCount = resp[0].unreadcount;
+      if(resp.length > 0)
+      this.unreadNotificationCount = resp[0].unreadcount;
      });
     });
   }   

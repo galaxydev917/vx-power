@@ -47,15 +47,15 @@ export class DietsPage implements OnInit {
     });
   }   
   ionViewWillLeave(){
-    this.slider.stopAutoplay();
+    //this.slider.stopAutoplay();
 
   }
   ionViewDidEnter() {
-    this.slider.startAutoplay();
+    //this.slider.startAutoplay();
   }
 
   ngOnInit() {
-    this.rowHeight = this.plt.height() * 2 / 9 + 'px';
+    this.rowHeight = (this.plt.height() - 44) * 1 / 3 + 'px';
     this.isLoading = true;
     this.slider_height = window.innerHeight / 3 -40 + 'px';
     this.categorytext_height = 20 + 'px';

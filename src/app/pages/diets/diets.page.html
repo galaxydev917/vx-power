@@ -1,44 +1,24 @@
 
-<ion-header *ngIf="!isLoading" class="darkheader" mode="ios" no-border>
-    <ion-toolbar mode="ios">
-        <ion-title class="ion-text-capitalize">
-            {{strings.ST3}}
-          </ion-title>
-        <ion-buttons slot="start">
-          <app-backbutton color="light"></app-backbutton>
-        </ion-buttons>
-        <ion-buttons slot="end">
-          <ion-button (click)="openNotifications()">
-            <ion-icon name="notifications-outline" style="font-size: 32px;"></ion-icon>
-            <div *ngIf="unreadNotificationCount > 0">
-              <ion-badge color="danger" style="margin-left: -15px; margin-top: -10px; font-size: 12px; border-radius: 20px;">{{unreadNotificationCount}}</ion-badge>
-            </div>
-         </ion-button>
-        </ion-buttons>
-    </ion-toolbar>
-    
-  </ion-header>
-
-<div>
-  <ion-slides *ngIf="isReady" [options]="slideOpts"  #featuredProductSlider mode="ios" [ngStyle]="{'height': slider_height}">
-    <ion-slide *ngFor="let item of diets" [routerLink]="['/ddetails', item.diet_id]" >
-      <div class="card" [ngStyle]="{'height': slider_height}" [style.background-image]="'url(' + (item.diet_image | image) + ')'">
-        <div class="overlay" [ngStyle]="{'height': slider_height}">
-        <div class="texts">
-        <p>{{item.category_title}}</p>
-        <h1>{{item.diet_title}}</h1>
+<ion-header class="lightheader" no-border>
+  <ion-toolbar mode="ios" style="--background : #dd0024;">
+    <ion-title class="ion-text-capitalize">
+      <span style="color: white;">{{strings.ST3}}</span>
+    </ion-title>
+    <ion-buttons slot="start">
+      <app-backbutton color="dark"></app-backbutton>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="openNotifications()">
+        <ion-icon name="notifications-outline" style="font-size: 32px; color: white;"></ion-icon>
+        <div *ngIf="unreadNotificationCount > 0">
+          <ion-badge color="primary" style="margin-left: -15px; margin-top: -10px; font-size: 12px; border-radius: 20px;">{{unreadNotificationCount}}</ion-badge>
         </div>
-      </div>
-      </div>
-    </ion-slide>
-  </ion-slides>
+     </ion-button>
+    </ion-buttons>        
+  </ion-toolbar>
+</ion-header>
 
-  <ion-list style="margin: 0; padding: 0; height: 40px;" >
-    <ion-list-header style="--background: #dd0024; height: 40px;">
-      <ion-label style="color : white;font-weight: bold; letter-spacing: 0; text-align: center;">{{strings.ST41}}</ion-label>
-    </ion-list-header>
-  </ion-list>
-</div>
+
 <ion-content class="ion-no-padding">
 
   <app-loading *ngIf="isLoading"></app-loading>
