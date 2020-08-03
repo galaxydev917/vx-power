@@ -5,6 +5,7 @@ import { DietsObject, CategoriesObject } from '../../interfaces/interfaces';
 import {IonSlides} from '@ionic/angular/';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-diets',
@@ -19,6 +20,7 @@ export class DietsPage implements OnInit {
   isLoading = false;
   isReady = true;
   unreadNotificationCount = 0;
+  rowHeight : any;
   slider_height: any;
   categorytext_height: any;
   slideOpts = {
@@ -31,7 +33,8 @@ export class DietsPage implements OnInit {
   constructor(
     private DataService: DataService,
     private router: Router,
-    private storage: Storage
+    private storage: Storage,
+    public plt: Platform
     ) { }
 
   async ionViewWillEnter() {
@@ -51,6 +54,7 @@ export class DietsPage implements OnInit {
   }
 
   ngOnInit() {
+    this.rowHeight = this.plt.height() * 2 / 9 + 'px';
     this.isLoading = true;
     this.slider_height = window.innerHeight / 3 -40 + 'px';
     this.categorytext_height = 20 + 'px';

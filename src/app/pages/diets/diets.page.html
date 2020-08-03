@@ -16,13 +16,10 @@
          </ion-button>
         </ion-buttons>
     </ion-toolbar>
+    
   </ion-header>
 
-
-<ion-content class="ion-no-padding">
-
-  <app-loading *ngIf="isLoading"></app-loading>
-
+<div>
   <ion-slides *ngIf="isReady" [options]="slideOpts"  #featuredProductSlider mode="ios" [ngStyle]="{'height': slider_height}">
     <ion-slide *ngFor="let item of diets" [routerLink]="['/ddetails', item.diet_id]" >
       <div class="card" [ngStyle]="{'height': slider_height}" [style.background-image]="'url(' + (item.diet_image | image) + ')'">
@@ -37,28 +34,19 @@
   </ion-slides>
 
   <ion-list style="margin: 0; padding: 0; height: 40px;" >
-      <ion-list-header style="--background: #dd0024; height: 40px;">
-        <ion-label style="color : white;font-weight: bold; letter-spacing: 0; text-align: center;">{{strings.ST41}}</ion-label>
-      </ion-list-header>
-    </ion-list>
+    <ion-list-header style="--background: #dd0024; height: 40px;">
+      <ion-label style="color : white;font-weight: bold; letter-spacing: 0; text-align: center;">{{strings.ST41}}</ion-label>
+    </ion-list-header>
+  </ion-list>
+</div>
+<ion-content class="ion-no-padding">
 
- <!-- <ion-grid>
-   <ion-row>
-     <ion-col size="6" *ngFor="let item of categories" [routerLink]="['/cdiets', item.category_id, item.category_title]">
-        <div class="cardcategory" [style.background-image]="'url(' + (item.category_image | image) + ')'">
-            <div class="overlay">
-            <div class="texts">
-            <h1>{{item.category_title}}</h1>
-            </div>
-          </div>
-          </div>
-     </ion-col>
-   </ion-row>
- </ion-grid> -->
+  <app-loading *ngIf="isLoading"></app-loading>
+
 
  <ion-grid>
-  <ion-row >
-    <ion-col *ngFor="let item of categories" [routerLink]="['/cdiets', item.category_id, item.category_title]"  size="12">
+  <ion-row *ngFor="let item of categories" [routerLink]="['/cdiets', item.category_id, item.category_title]" [ngStyle]="{'height': rowHeight}">
+    <ion-col size="12">
       <div class="card-center-image" [style.background-image]="'url(' + (item.category_image | image) + ')'">
         <div class="card-center-bg">
           <div class="card-center-text">
