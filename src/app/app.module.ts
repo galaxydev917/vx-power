@@ -39,9 +39,9 @@ import { Facebook } from '@ionic-native/facebook/ngx';
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseconfig.firebase), // imports firebase/app
-    AngularFirestoreModule, // imports firebase/firestore
-    AngularFireAuthModule, // imports firebase/auth
-    AngularFireStorageModule // imports firebase/storage
+    AngularFirestoreModule, 
+    AngularFireAuthModule, 
+    AngularFireStorageModule 
   ],
   providers: [
     StatusBar,
