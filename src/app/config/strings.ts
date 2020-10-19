@@ -61,7 +61,7 @@ export const strings = {
 
     ST28: 'Enter',
 
-    ST29: 'Forgot Password?',
+    ST29: 'Forgot Password',
 
     ST30: 'Wrong password!',
 
@@ -289,5 +289,6 @@ export const strings = {
 
     ST148: 'Notifications',
 
+    ST149: 'These calculations are based on the CDC Guidelines which you can read here.'
 
 };

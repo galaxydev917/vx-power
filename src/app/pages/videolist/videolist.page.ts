@@ -28,7 +28,7 @@ export class VideolistPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.height = window.innerHeight / 4 + 'px';
+    this.height = (this.plt.height() - 44) * 1 / 3 + 'px';
   }
 
   async ionViewWillEnter() {

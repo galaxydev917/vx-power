@@ -6,33 +6,14 @@
     <ion-buttons slot="start">
       <app-backbutton color="dark"></app-backbutton>
     </ion-buttons>
-    <!-- <ion-buttons slot="end">
-      <ion-button (click)="openNotifications()">
-        <ion-icon name="notifications-outline" style="font-size: 32px; color: white;"></ion-icon>
-        <div *ngIf="unreadNotificationCount > 0">
-          <ion-badge color="primary" style="margin-left: -15px; margin-top: -10px; font-size: 12px; border-radius: 20px;">{{unreadNotificationCount}}</ion-badge>
-        </div>
-     </ion-button>
-    </ion-buttons>         -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- <ion-list>
-    <ion-item *ngFor="let item of videolist" (click)="playVideo(item)">
-      <ion-thumbnail slot="end">
-        <img src="{{item.video_image | image }}">
-      </ion-thumbnail>
-      <ion-label>
-        <h3><strong>{{item.video_title}}</strong></h3>
-        <p>{{item.video_description}}</p>
-      </ion-label>
-    </ion-item>    
 
-  </ion-list>   -->
   <ion-grid>
-    <ion-row [ngStyle]="{'height': height}" *ngFor="let item of videolist" (click)="playVideo(item)">
-      <ion-col  size="12">
+    <ion-row *ngFor="let item of videolist" (click)="playVideo(item)"  [ngStyle]="{'height': height}">
+      <ion-col size="12">
         <div class="card-center-image" [style.background-image]="'url(' + (item.video_image | image) + ')'">
           <div class="card-center-bg">
             <div class="card-center-text">
@@ -42,6 +23,6 @@
         </div>
         
       </ion-col>
-    </ion-row>  
+    </ion-row>    
   </ion-grid>  
 </ion-content>

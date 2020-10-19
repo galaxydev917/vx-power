@@ -18,6 +18,7 @@ export class CdietsPage implements OnInit {
   isLoading = false;
   id: any;
   height: any;
+  rowHeight : any;
 
   constructor(
     private dataService: DataService,
@@ -27,7 +28,7 @@ export class CdietsPage implements OnInit {
     ) {}
 
     ngOnInit() {
-
+      this.rowHeight = (this.plt.height() - 44) * 1 / 3 + 'px';
     }
 
     async ionViewWillEnter() {

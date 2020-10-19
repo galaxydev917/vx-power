@@ -1,23 +1,21 @@
-<ion-header class="lightheader" no-border>
-  <ion-toolbar mode="ios">
-      <ion-title class="ion-text-capitalize">
-        {{strings.ST29}}
-      </ion-title>
-          <ion-buttons slot="start">
-            <ion-button color="dark" mode="md" (click)="goClosePage()" slot="start">
-              <ion-icon name="arrow-back-outline"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
 
-<ion-grid fixed style="height: 100%;">
-
+<ion-grid fixed class="grid-bg" style="height: 100%;">
+  <ion-row>
+    <ion-toolbar mode="ios" style="--background : transparent;">
+      <ion-title class="ion-text-capitalize">
+        <span style="color: white;">{{strings.ST29}}</span>
+      </ion-title>
+      <ion-buttons slot="start">
+        <ion-button mode="md" (click)="goClosePage()" slot="start" style="--color : white;">
+          <!-- <ion-icon name="arrow-back-outline" color="white"></ion-icon> -->
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-row>
     <ion-row class="ion-justify-content-center ion-align-items-center" style="height: 100%;">
       <ion-col size="8" class="ion-text-center">
-        <img src="./assets/images/logo.jpg" class="start-logo"/>
+        <!-- <img src="./assets/images/logo.png" class="start-logo"/> -->
   
         <form class="form" autocomplete="off" [formGroup]="validationsform" (ngSubmit)="tryRestPass(validationsform.value)">
             <ion-list class="line-input" mode="md"> 
